@@ -45,7 +45,6 @@
 }
 
 .login-form a {
-  display: block;
   padding-top: 10px;
   color: lightseagreen;
 }
@@ -59,21 +58,9 @@
   margin-top: 10px;
 }
 
-.login-form .facebook-btn {
-  background-color: #3c589c;
-}
-
-.login-form .google-btn {
-  background-color: #df4b3b;
-}
-
 .login-form .form-reset,
 .login-form .form-signup {
   display: none;
-}
-
-.login-form .form-signup .social-btn {
-  width: 210px;
 }
 
 .login-form .form-signup input {
@@ -85,6 +72,10 @@
   margin: 0 auto;
 }
 
+.btn a {
+  color: #fff;
+  padding: 0;
+}
 /* Mobile */
 
 @media screen and (max-width: 500px) {
@@ -96,25 +87,5 @@
     width: 200px;
     margin: 0 auto;
     margin-bottom: 10px;
-  }
-  .login-form .social-btn {
-    font-size: 1.3rem;
-    font-weight: 100;
-    color: white;
-    width: 200px;
-    height: 56px;
-  }
-  .login-form .social-btn:nth-child(1) {
-    margin-bottom: 5px;
-  }
-  .login-form .social-btn span {
-    display: none;
-  }
-  .login-form .facebook-btn:after {
-    content: "Facebook";
-  }
-
-  .logreg-forms .google-btn:after {
-    content: "Google+";
   }
 }
