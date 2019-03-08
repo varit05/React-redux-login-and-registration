@@ -1,6 +1,5 @@
-function logIn(user) {
+const logIn = user => {
   return (dispatch, getState, { getFirebase }) => {
-    console.log("Login action", user);
     const firebase = getFirebase();
     firebase
       .auth()
@@ -8,7 +7,7 @@ function logIn(user) {
       .then(() => dispatch({ type: "LOGIN_SUCCESS" }))
       .catch(error => dispatch({ type: "LOGIN_ERROR", error }));
   };
-}
+};
 
 const logOut = () => {
   return (dispatch, getState, { getFirebase }) => {
@@ -25,7 +24,32 @@ const logOut = () => {
   };
 };
 
+const logInWithGoogle = user => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(googleProvider)
+      .then(() => dispatch({ type: "LOGIN_SUCCESS" }))
+      .catch(error => dispatch({ type: "LOGIN_ERROR", error }));
+  };
+};
+
+const register = user => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(user.inputEmail, user.inputPassword)
+      .then(() => dispatch({ type: "REGISTER_SUCCESS" }))
+      .catch(error => dispatch({ type: "REGISTER_ERROR", error }));
+  };
+};
+
 export const authActions = {
   logIn,
-  logOut
+  logOut,
+  logInWithGoogle,
+  register
 };
