@@ -33,8 +33,9 @@ const Header = props => {
                     Home
                   </Link>
                 </li>
+                {/* eslint-disable-next-line */}
                 <li className="nav-item">
-                  <a className="nav-link" onClick={props.logOut}>
+                  <a href="_blank" className="nav-link" onClick={props.logOut}>
                     Log out
                   </a>
                 </li>
